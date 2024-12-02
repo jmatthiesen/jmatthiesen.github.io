@@ -26,11 +26,21 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jmatthiesen
 github_username:  jmatthiesen
+minimal_mistakes_skin: default
+search: true
+
+include:
+  - _pages
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -51,3 +61,57 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+author:
+  name   : "Jordan Matthiesen"
+  avatar : "/assets/images/bio-photo.png"
+  bio    : "Hi! I'm Jordan - I'm a Product Manager at Microsoft working on .NET + AI. In my own time, I'm also a dad, gardener, and guitarist."
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/jmatthiesen"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jmatthiesen"
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jmatthiesen"
+    - label: "Bluesky"
+      icon: "fab fa-fw fa-bluesky"
+      url: "https://bsky.app/profile/jordanmatthiesen.me"
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/jmatthiesen"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
