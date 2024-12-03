@@ -19,11 +19,11 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Jordan Matthiesen
-email: your-email@example.com
+email: 
 description: >- # this means to ignore newlines until "baseurl:"
   The personal website of Jordan Matthiesen - just a geek, gardener, guitar player, and dad.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jordanmatthiesen.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jmatthiesen
 github_username:  jmatthiesen
 minimal_mistakes_skin: default
@@ -33,7 +33,7 @@ include:
   - _pages
 
 # Build settings
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -41,6 +41,12 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -69,13 +75,16 @@ author:
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/jmatthiesen"
+      url: "https://jordanmatthiesen.me"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jmatthiesen"
+    - label: "Bluesky"
+      icon: "fab fa-fw fa-bluesky"
+      url: "https://bsky.app/profile/jordanmatthiesen.me"
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/jmatthiesen"
 
 footer:
   links:
