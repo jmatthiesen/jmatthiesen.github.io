@@ -43,6 +43,9 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+analytics:
+  provider: "google-gtag"
+
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
