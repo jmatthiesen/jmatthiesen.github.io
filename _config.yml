@@ -44,7 +44,7 @@ plugins:
   - jekyll-include-cache
 
 analytics:
-  provider: "google-gtag"
+  provider: "custom"
 
 # Outputting
 permalink: /:categories/:title/
