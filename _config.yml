@@ -27,6 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jordanmatthiesen.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jmatthiesen
 github_username:  jmatthiesen
+copyright: Jordan Matthiesen
 minimal_mistakes_skin: default
 search: true
 
