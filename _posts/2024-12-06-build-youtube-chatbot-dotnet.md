@@ -8,7 +8,7 @@ Recently on a trip for a tech conference I created a [YouTube chat app using .NE
 
 ![Terminal window showing the YouTubeChat console running, with a question asking "How do I chat with my own data using AI?"](/assets/images/2024-12-16-build-youtube-chatbot.png)
 
-This approach was inspired by a great LangChain tutorial on freeCodeCamp [^1] that I follwed when first learning about generative AI last year. I really liked it as a simple example, yet one that's useful for personal tools. If you're new to AI dev, that tutorial is a little dated now, but still worth checking out.
+This approach was inspired by a great LangChain tutorial on freeCodeCamp [^1] that I followed when first learning about generative AI last year. I really liked it as a simple example, yet one that's useful for personal tools. If you're new to AI dev, that tutorial is a little dated now, but still worth checking out.
 
 For an up-to-date overview of .NET + AI, I'd recommend checking out the [Building AI Applications fro Scratch (using .NET)](https://www.youtube.com/watch?v=7Rw_ciSh2Wk) video from my team at Microsoft. Which also happens to be the video I'm using as an example in this YouTube chat repo.
 
@@ -22,6 +22,7 @@ This sample is built using the following technology:
 
 To "chat with YouTube" the application will:
 1. Download the transcript of a YouTube video
+
 2. Create vector embeddings for the content of the transcript
 3. Take a question from the user and create embeddings of the question
 4. Perform a similarity search by comparing embeddings and returning transcript items that match the question
