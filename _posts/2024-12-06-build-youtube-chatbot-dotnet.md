@@ -6,6 +6,8 @@ categories: .NET and AI
 ---
 Recently on a trip for a tech conference I created a [YouTube chat app using .NET and AI](https://github.com/jmatthiesen/dotnet-ai-youtube-chat). This is part of my exploration into creating a larger app for chatting about .NET AI development (leveraging docs, presentations, and sample code my team has been working on at Microsoft).
 
+[View the sample: YouTube chat app using .NET and AI](https://github.com/jmatthiesen/dotnet-ai-youtube-chat)
+
 ![Terminal window showing the YouTubeChat console running, with a question asking "How do I chat with my own data using AI?"](/assets/images/2024-12-16-build-youtube-chatbot.png)
 
 This approach was inspired by a great LangChain tutorial on freeCodeCamp [^1] that I followed when first learning about generative AI last year. I really liked it as a simple example, yet one that's useful for personal tools. If you're new to AI dev, that tutorial is a little dated now, but still worth checking out.
