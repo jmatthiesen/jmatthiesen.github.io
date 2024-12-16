@@ -29,6 +29,7 @@ twitter_username: jmatthiesen
 github_username:  jmatthiesen
 minimal_mistakes_skin: default
 search: true
+enable_copy_code_button: true
 
 include:
   - _pages

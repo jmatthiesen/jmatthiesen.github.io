@@ -10,7 +10,7 @@ Recently on a trip for a tech conference I created a [YouTube chat app using .NE
 
 This approach was inspired by a great LangChain tutorial on freeCodeCamp [^1] that I followed when first learning about generative AI last year. I really liked it as a simple example, yet one that's useful for personal tools. If you're new to AI dev, that tutorial is a little dated now, but still worth checking out.
 
-For an up-to-date overview of .NET + AI, I'd recommend checking out the [Building AI Applications fro Scratch (using .NET)](https://www.youtube.com/watch?v=7Rw_ciSh2Wk) video from my team at Microsoft. Which also happens to be the video I'm using as an example in this YouTube chat repo.
+For an up-to-date overview of .NET + AI, I'd recommend checking out the [Building AI Applications from Scratch (using .NET)](https://www.youtube.com/watch?v=7Rw_ciSh2Wk) video from my team at Microsoft. Which also happens to be the video I'm using as an example in this YouTube chat repo.
 
 # How is this app built?
 This sample is built using the following technology:
@@ -23,12 +23,83 @@ This sample is built using the following technology:
 To "chat with YouTube" the application will:
 1. Download the transcript of a YouTube video
 
+```csharp
+var youtubeTranscriptApi = new YouTubeTranscriptApi();
+
+// https://www.youtube.com/watch?v=7Rw_ciSh2Wk
+transcript = youtubeTranscriptApi.GetTranscript("7Rw_ciSh2Wk");
+```
+
 2. Create vector embeddings for the content of the transcript
+
+```csharp
+for (var i = 0; i < transcript.Count(); i++)
+{
+    var element = transcript.ElementAt(i);
+
+    // [1] Build up text to ingest
+    builder.Append(element.Text);
+    builder.Append(" "); // Account for transcripts not adding spacing between items
+    ...
+    // [2] Embed (string -> embedding)
+    var embedding = await _embeddingGenerator.GenerateEmbeddingVectorAsync(text);
+
+    // Create the chunk object
+    var chunk = new TranscriptChunk
+    {
+        Id = ++chunkIndex,
+        StartTime = startTimeForChunk,
+        Duration = durationForChunk,
+        Text = text,
+        Embedding = embedding
+    };
+
+    // [3] Save the chunk
+    await _transcriptItems.UpsertAsync(chunk);
+```
+
 3. Take a question from the user and create embeddings of the question
+
+```csharp
+var queryEmbedding = await embeddingGenerator.GenerateEmbeddingVectorAsync(prompt);
+```
+
 4. Perform a similarity search by comparing embeddings and returning transcript items that match the question
+
+```csharp
+var searchOptions = new VectorSearchOptions()
+{
+    Top = 3,
+    VectorPropertyName = "Embedding"
+};
+
+var results = await transcriptItems.VectorizedSearchAsync(queryEmbedding, searchOptions);
+```
+
 5. Run a prompt through OpenAI (or a local model using Ollama) that will form a responses to the user's question, using the transcript matches as context
 
-This is a pattern called Retrieval-Augmented-Generation (RAG), which is extremely common for including your own data in calls to LLMs (like OpenAI). You can learn more about the concept from this great [What is RAG article by IBM Research](https://research.ibm.com/blog/retrieval-augmented-generation-RAG), or check out the [Building AI Applications fro Scratch (using .NET)](https://www.youtube.com/watch?v=7Rw_ciSh2Wk) video mentioned above.
+```csharp
+StringBuilder builder = new StringBuilder();
+
+await foreach (var result in results.Results)
+{
+    builder.AppendLine(result.Record.Text);
+}
+
+var systemPrompt = $@"You're an expert at developing software using .NET and Microsoft.Extensions.AI.
+                    When you answer questions from developers, you should provide detailed explanations and examples.
+                    You should also provide links to documentation and other resources that can help developers learn more.
+                    Use the context below to help answer questions, limit responses to use only the provided context.
+                    Respond in 4 paragraphs or less:
+                    
+                    <context>
+                    {builder.ToString()}
+                    </context>
+                    
+                    Question: {prompt}";
+```
+
+This is a pattern called Retrieval-Augmented-Generation (RAG), which is extremely common for including your own data in calls to LLMs (like OpenAI). You can learn more about the concept from this great [What is RAG article by IBM Research](https://research.ibm.com/blog/retrieval-augmented-generation-RAG), or check out the [Building AI Applications from Scratch (using .NET)](https://www.youtube.com/watch?v=7Rw_ciSh2Wk) video mentioned above.
 
 # Next steps
 There's still work that could be done next with this example, which I'll explore in the future as I build out my bigger .NET + AI chat idea. The main thing is improving the quality of responses, which aren't great with audio transcripts alone:
