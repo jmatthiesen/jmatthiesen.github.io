@@ -2,7 +2,9 @@
 title:  "Build a YouTube chat app with .NET"
 date:   2024-12-16 17:00:00 +0000
 classes: wide
-categories: .NET and AI
+category: Programming
+tags:
+- .NET AI
 ---
 Recently on a trip for a tech conference I created a [YouTube chat app using .NET and AI](https://github.com/jmatthiesen/dotnet-ai-youtube-chat). This is part of my exploration into creating a larger app for chatting about .NET AI development (leveraging docs, presentations, and sample code my team has been working on at Microsoft).
 
