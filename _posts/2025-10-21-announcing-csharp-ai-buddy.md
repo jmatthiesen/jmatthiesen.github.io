@@ -10,7 +10,9 @@ Today, I'm happy to share an early preview of C# AI Buddy - an AI assistant you 
 
 **Want to try it out?** You can get started right away at [csharpaibuddy.com](https://csharpaibuddy.com) using the preview key: `PREVIEW2025`
 
+{: .align-center style="width: 50%"}
 {% include figure popup=true image_path="/assets/images/2025-10-21-announcing-csharp-ai-buddy-intro.png" alt="C# AI Buddy Screenshot, showing a chat box followed by links to samples, news, and chat." %}
+
 
 This is a proof of concept right now, and I could really use your help – please try it out share feedback, and rate the AI responses (with comments)!
 
@@ -20,16 +22,7 @@ I decided to build C# AI Buddy, not just as a tool for myself, but as a way to h
 
 I'm a big fan of coding assistants (I used several in building this very site), but they don't offer great advice when building AI solutions with C# and .NET. I want up to date and prescriptive guidance so that I don't have to spend so much time fact checking the assistant.
 
-## The Goal: Cut Development Time in Half
-
-Here's my ambitious goal for C# AI Buddy: **help C# developers cut their AI development time in half**.
-
-Instead of spending hours searching through documentation, blog posts, and GitHub repos, you can ask questions and get context-aware answers tailored to your specific stack. Want to know how to implement image classification with ML.NET on .NET 9? Ask. Need to understand the differences between Semantic Kernel and AutoGen for your use case? Just ask.
-
-The system doesn't just answer questions - it provides:
-- **Context-aware guidance** based on your chosen .NET version, AI library, and provider
-- **Curated code samples** from across the .NET AI ecosystem
-- **The latest news and articles** curated from authoriative sources talking about .NET AI development
+My goal for C# AI Buddy: **cut C# AI development time in half**.
 
 ## What C# AI Buddy Does
 
@@ -37,22 +30,24 @@ Let me walk you through the core functionality:
 
 ### AI Chat Assistant
 
-The heart of C# AI Buddy is the conversational AI chat interface. You can ask questions about any aspect of building AI solutions with C# and .NET. The system uses OpenAI's latest models combined with a curated knowledge base of .NET AI documentation, blog posts, and official resources.
+The heart of C# AI Buddy is the conversational AI chat interface. You can ask questions about any aspect of building AI solutions with C# and .NET. The system uses OpenAI models combined with a curated knowledge base of .NET AI documentation, blog posts, and official resources.
 
 What makes it unique is the filter system. Before you ask a question, you can tell the AI what you're working with:
 - **.NET Version**: .NET 7, 8, or 9
-- **AI Library**: Semantic Kernel, ML.NET, AutoGen, Microsoft.Extensions.AI, or others
+- **AI Library**: Microsoft Agent Framework, Semantic Kernel, ML.NET, AutoGen, Microsoft.Extensions.AI, or others
 - **AI Provider**: OpenAI, Azure OpenAI, Anthropic, Google, or local models
 
 This context helps the AI provide more relevant answers and code examples that actually match your environment.
 
-![Chat window showing the question "How do I createn an MCP Server?" Followed by a response.](/assets/images/2025-10-21-announcing-csharp-ai-buddy-assistant.png)
+{: .align-center style="width: 50%"}
+{% include figure popup=true image_path="/assets/images/2025-10-21-announcing-csharp-ai-buddy-assistant.png" alt="Chat window showing the question 'How do I create an MCP Server?' followed by a response." %}
 
 ### Code Samples Gallery
 
 I've been aggregating code samples from across the .NET AI community - GitHub repos, blog posts, official Microsoft samples, and more. You can browse by framework, search for specific patterns, and find working examples to learn from.
 
-![A Search field followed by a List of samples like "customer support" and "eShopLite"](/assets/images/2025-10-21-announcing-csharp-ai-buddy-samples.png)
+{: .align-center style="width: 50%"}
+{% include figure popup=true image_path="/assets/images/2025-10-21-announcing-csharp-ai-buddy-samples.png" alt="A Search field followed by a List of samples like 'customer support' and 'eShopLite'" %}
 
 Each sample includes author attribution, source links, and tags so you can quickly filter to what matters for your project.
 
