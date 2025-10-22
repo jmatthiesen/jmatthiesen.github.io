@@ -5,7 +5,7 @@ permalink: /about/
 
 Hi! I'm Jordan and you've found my home on the Internet.
 
-I'm a Product Manager at Microsoft, working on [.NET](https://dotnet.microsoft.com/) and AI development.
+I'm a technical Product Manager with a focus on developer technology. I previously worked at Microsoft, on [.NET](https://dotnet.microsoft.com/) and AI development.
 
 In my personal time, I love gardening, playing music, photography, and being a full time dad.
 

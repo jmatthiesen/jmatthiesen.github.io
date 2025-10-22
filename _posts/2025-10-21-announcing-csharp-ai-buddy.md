@@ -1,5 +1,5 @@
 ---
-title:  "Announcing C# AI Buddy: Your Assistant for Building AI Solutions with .NET"
+title:  "C# AI Buddy: Early Preview"
 date:   2025-10-21 17:00:00 +0000
 classes: wide
 category: Programming
